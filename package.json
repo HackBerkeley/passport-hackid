@@ -1,14 +1,14 @@
 {
   "name": "passport-hackid",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "HackID authentication strategy for Passport.",
   "author": { "name": "Steve Yadlowsky", "email": "grizlo42@gmail.com", "url": "http://csua.berkeley.edu/~syadlows" },
   "repository": {
     "type": "git",
-    "url": "git://github.com/grizlo42/passport-hackid.git"
+    "url": "git://github.com/HackBerkeley/passport-hackid.git"
   },
   "bugs": {
-    "url": "http://github.com/grizlo42/passport-hackid/issues"
+    "url": "http://github.com/HackBerkeley/passport-hackid/issues"
   },
   "main": "./lib/passport-hackid",
   "dependencies": {
