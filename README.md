@@ -89,8 +89,8 @@ For a complete, working example, refer to the [login example](https://github.com
 
 ## Credits
 
-  - [Jared Hanson](http://github.com/jaredhanson) creator of the passport-facebook, from which this was mirrored.
   - [Steve Yadlowsky](http://github.com/grizlo42)
+  - [Jared Hanson](http://github.com/jaredhanson) creator of the passport-facebook, from which this was mirrored.
 
 ## License
 
