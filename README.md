@@ -1,34 +1,34 @@
-# Passport-Facebook
+# Passport-HackID
 
-[Passport](http://passportjs.org/) strategy for authenticating with [Facebook](http://www.facebook.com/)
+[Passport](http://passportjs.org/) strategy for authenticating with [HackID](https://hackid.herokuapp.com/)
 using the OAuth 2.0 API.
 
-This module lets you authenticate using Facebook in your Node.js applications.
-By plugging into Passport, Facebook authentication can be easily and
+This module lets you authenticate using HackID in your Node.js applications.
+By plugging into Passport, HackID authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
 ## Installation
 
-    $ npm install passport-facebook
+    $ npm install passport-hackid
 
 ## Usage
 
 #### Configure Strategy
 
-The Facebook authentication strategy authenticates users using a Facebook
+The HackID authentication strategy authenticates users using a HackID
 account and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which
 accepts these credentials and calls `done` providing a user, as well as
 `options` specifying a app ID, app secret, and callback URL.
 
-    passport.use(new FacebookStrategy({
-        clientID: FACEBOOK_APP_ID,
-        clientSecret: FACEBOOK_APP_SECRET,
-        callbackURL: "http://localhost:3000/auth/facebook/callback"
+    passport.use(new HackIDStrategy({
+        clientID: HACKID_APP_ID,
+        clientSecret: HACKID_APP_SECRET,
+        callbackURL: "http://localhost:3000/auth/hackid/callback"
       },
       function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+        User.findOrCreate({ hackidId: profile.id }, function (err, user) {
           return done(err, user);
         });
       }
@@ -36,21 +36,21 @@ accepts these credentials and calls `done` providing a user, as well as
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'facebook'` strategy, to
+Use `passport.authenticate()`, specifying the `'hackid'` strategy, to
 authenticate requests.
 
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-    app.get('/auth/facebook',
-      passport.authenticate('facebook'),
+    app.get('/auth/hackid',
+      passport.authenticate('hackid'),
       function(req, res){
-        // The request will be redirected to Facebook for authentication, so
+        // The request will be redirected to HackID for authentication, so
         // this function will not be called.
       });
 
-    app.get('/auth/facebook/callback',
-      passport.authenticate('facebook', { failureRedirect: '/login' }),
+    app.get('/auth/hackid/callback',
+      passport.authenticate('hackid', { failureRedirect: '/login' }),
       function(req, res) {
         // Successful authentication, redirect home.
         res.redirect('/');
@@ -64,10 +64,10 @@ via the `scope` option to `passport.authenticate()`.
 For example, this authorization requests permission to the user's statuses and
 checkins:
 
-    app.get('/auth/facebook',
-      passport.authenticate('facebook', { scope: ['user_status', 'user_checkins'] }),
+    app.get('/auth/hackid',
+      passport.authenticate('hackid', { scope: ['user_status', 'user_checkins'] }),
       function(req, res){
-        // The request will be redirected to Facebook for authentication, with
+        // The request will be redirected to HackID for authentication, with
         // extended permissions.
       });
 
@@ -77,43 +77,26 @@ The display mode with which to render the authorization dialog can be set by
 specifying the `display` option.  Refer to Facebook's [OAuth Dialog](https://developers.facebook.com/docs/reference/dialogs/oauth/)
 documentation for more information.
 
-    app.get('/auth/facebook',
-      passport.authenticate('facebook', { display: 'touch' }),
+    app.get('/auth/hackid',
+      passport.authenticate('hackid', { display: 'touch' }),
       function(req, res){
         // ...
       });
 
 ## Examples
 
-For a complete, working example, refer to the [login example](https://github.com/jaredhanson/passport-facebook/tree/master/examples/login).
-
-## Issues
-
-Facebook's OAuth 2.0 implementation has a [bug][1] in which the fragment `#_=_`
-is appended to the callback URL.  This appears to affect Firefox and Chrome, but
-not Safari.  This fragment can be removed via client-side JavaScript, and [@niftylettuce](https://github.com/niftylettuce)
-provides a suggested [workaround][2].  Developers are encouraged to direct their
-complaints to Facebook in an effort to get them to implement a proper fix for
-this issue.
-[1]: https://developers.facebook.com/bugs/196125357123225
-[2]: https://github.com/jaredhanson/passport-facebook/issues/12#issuecomment-5913711
-
-## Tests
-
-    $ npm install --dev
-    $ make test
-
-[![Build Status](https://secure.travis-ci.org/jaredhanson/passport-facebook.png)](http://travis-ci.org/jaredhanson/passport-facebook)
+For a complete, working example, refer to the [login example](https://github.com/HackBerkeley/passport-hackid/tree/master/examples/login).
 
 ## Credits
 
-  - [Jared Hanson](http://github.com/jaredhanson)
+  - [Jared Hanson](http://github.com/jaredhanson) creator of the passport-facebook, from which this was mirrored.
+  - [Steve Yadlowsky](http://github.com/grizlo42)
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2011 Jared Hanson
+Copyright (c) 2011 Steve Yadlowsky
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
