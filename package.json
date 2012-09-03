@@ -1,6 +1,6 @@
 {
   "name": "passport-hackid",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "HackID authentication strategy for Passport.",
   "author": { "name": "Steve Yadlowsky", "email": "grizlo42@gmail.com", "url": "http://csua.berkeley.edu/~syadlows" },
   "repository": {
